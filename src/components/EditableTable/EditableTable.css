@@ -1,0 +1,15 @@
+#simplified-spreadsheet {
+    max-width: 1100px;
+    margin: 50px auto;
+}
+.editable-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: arial, sans-serif;
+}
+
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}

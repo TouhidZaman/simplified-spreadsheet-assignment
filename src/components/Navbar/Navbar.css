@@ -1,0 +1,12 @@
+nav {
+    background-color: darkmagenta;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav h1 {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
