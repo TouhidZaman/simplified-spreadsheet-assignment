@@ -44,3 +44,9 @@ td input {
     min-width: 120px;
     padding: 8px;
 }
+
+@media only screen and (max-width: 600px) {
+    .actions button {
+        padding: 6px 10px;
+    }
+}
