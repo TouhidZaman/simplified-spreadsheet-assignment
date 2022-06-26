@@ -15,9 +15,9 @@ Simplified spreadsheet is a kind of spreadsheet where you can add your business 
     -   custom-csv-file-generate-and-download
 
 ## Project Live Preview
+![simplified-spreadsheet](https://user-images.githubusercontent.com/58657283/175833263-bdccedd3-c007-4efd-a7a9-f7c598e3f1ca.jpeg)
 
 ## Project Author Info
-![simplified-spreadsheet](https://user-images.githubusercontent.com/58657283/175833263-bdccedd3-c007-4efd-a7a9-f7c598e3f1ca.jpeg)
 
 ### Author Name: Muhammad Touhiduzzaman
 
