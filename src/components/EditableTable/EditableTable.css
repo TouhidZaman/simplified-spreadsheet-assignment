@@ -3,6 +3,30 @@
     margin: 30px auto 50px;
     padding: 0 30px;
 }
+.actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.actions button {
+    padding: 10px 15px;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: darkmagenta;
+    border-radius: 8px;
+    color: white;
+    border: none;
+}
+.actions button:active {
+    background-color: green;
+    transform: scale(1.1);
+}
+
+.spreadsheet-container {
+    overflow: auto;
+}
+
 .editable-table {
     width: 100%;
     border-collapse: collapse;
@@ -17,16 +41,6 @@ td input {
     border: 1px solid #dddddd;
     text-align: left;
     width: 100%;
+    min-width: 120px;
     padding: 8px;
-}
-
-.actions {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.actions button {
-    padding: 5px 15px;
-    margin-right: 5px;
 }

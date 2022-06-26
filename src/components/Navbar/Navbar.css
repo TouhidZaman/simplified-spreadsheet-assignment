@@ -6,7 +6,8 @@ nav {
     align-items: center;
 }
 nav h1 {
+    font-family: "Rubik Moonrocks", cursive;
     text-align: center;
     color: white;
-    font-size: 40px;
+    font-size: 50px;
 }

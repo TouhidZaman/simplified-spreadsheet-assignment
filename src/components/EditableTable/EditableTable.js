@@ -15,7 +15,7 @@ const EditableTable = () => {
         { col_1: "", col_2: "", col_3: "", col_4: "", col_5: "" },
     ]);
     const [headings, setHeadings] = useState(["A", "B", "C", "D", "E"]);
-    console.log(spreadsheetData);
+    // console.log(spreadsheetData);
 
     //Handle table data change
     const handleColChange = (event, index, col) => {
@@ -50,40 +50,67 @@ const EditableTable = () => {
         setHeadings([...headings, char]);
     };
 
+    //Handle download CSV
+    const handleDownloadCSV = () => {
+        const csvRows = [];
+        // const headers = Object.keys(spreadsheetData[0]);
+        // csvRows.push(headers.join(","));
+        spreadsheetData.forEach((data) => {
+            const values = Object.values(data).join(",");
+            csvRows.push(values);
+            // console.log(values);
+        });
+        const csvData = csvRows.join("\n");
+        downloadCSVFile(csvData);
+    };
+
+    //Generating CSV file from string
+    const downloadCSVFile = (csvData) => {
+        const element = document.createElement("a");
+        const csvFile = new Blob([csvData], {
+            type: "text/csv",
+        });
+        element.href = URL.createObjectURL(csvFile);
+        element.download = "my-file.csv";
+        element.click();
+    };
+
     return (
         <section id="simplified-spreadsheet">
             <div className="actions">
                 <button onClick={handleAddNewRow}>Add New Row</button>
-                <button onClick={handleAddNewColumn}>Add New column</button>
-                <button onClick={handleAddNewColumn}>Download CSV</button>
+                <button onClick={handleAddNewColumn}>Add New Column</button>
+                <button onClick={handleDownloadCSV}>Download CSV</button>
             </div>
-            <table className="editable-table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        {headings.map((heading, hk) => (
-                            <th key={hk}>{heading}</th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody>
-                    {spreadsheetData.map((tr, index) => (
-                        <tr key={index}>
-                            <th>{index + 1}</th>
-                            {Object.keys(tr).map((col) => (
-                                <td key={col}>
-                                    <input
-                                        onChange={(event) =>
-                                            handleColChange(event, index, col)
-                                        }
-                                        type="text"
-                                    />
-                                </td>
+            <div className="spreadsheet-container">
+                <table className="editable-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            {headings.map((heading, hk) => (
+                                <th key={hk}>{heading}</th>
                             ))}
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {spreadsheetData.map((tr, index) => (
+                            <tr key={index}>
+                                <th>{index + 1}</th>
+                                {Object.keys(tr).map((col) => (
+                                    <td key={col}>
+                                        <input
+                                            onChange={(event) =>
+                                                handleColChange(event, index, col)
+                                            }
+                                            type="text"
+                                        />
+                                    </td>
+                                ))}
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </section>
     );
 };
